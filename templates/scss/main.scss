@@ -27,7 +27,7 @@ html {
 }
 
 body {
-  background: url('https://www.thesebastianvail.com/sites/default/files/Getalong%20Rd_0.JPG') no-repeat center center;
+  background: url('https://www.thesebastianvail.com/sites/default/files/Getalong%20Rd_0.JPG') no-repeat center center $black;
   background-size: cover;
   min-height: 100vh;
 }
@@ -67,144 +67,175 @@ div.container {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  opacity: 0;
   visibility: hidden;
-  }
-  .modal .modal-background {
-    -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-    opacity: 0;
-  }
-  .modal.is-active {
+
+  &.is-active {
+    opacity: 1;
     visibility: visible;
   }
-    .modal.is-active .modal-background {
-      backdrop-filter: blur(4px);
+
+  .modal-background {
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    opacity: 0;
+  }
+
+  &.modal-full-screen {
+    .modal-background {
+      background-color: $white;
+    }
+    .modal-content {
+      width: 100%;
+      height: 100%;
+      max-height: 100vh;
+      margin: 0;
+      background-color: $white;
+    }
+  }
+
+  &.modal-fx-fadeInScale {
+    .modal-content {
+      -webkit-transform: scale(0.7);
+           -o-transform: scale(0.7);
+              transform: scale(0.7);
+      opacity: 0;
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+
+    &.is-active .modal-content {
+      -webkit-transform: scale(1);
+           -o-transform: scale(1);
+              transform: scale(1);
       opacity: 1;
     }
-  .modal.modal-full-screen .modal-background {
-    background-color: $white;
   }
-  .modal.modal-full-screen .modal-content {
-    width: 100%;
-    height: 100%;
-    max-height: 100vh;
-    margin: 0;
-    background-color: $white;
+
+  &.modal-fx-slideRight {
+    .modal-content {
+      -webkit-transform: translateX(20%);
+           -o-transform: translateX(20%);
+              transform: translateX(20%);
+      opacity: 0;
+      -webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+      -o-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+      transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    }
+
+    &.is-active .modal-content {
+      -webkit-transform: translateX(0);
+           -o-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
   }
-  .modal.modal-fx-fadeInScale .modal-content {
-    -webkit-transform: scale(0.7);
-         -o-transform: scale(0.7);
-            transform: scale(0.7);
-    opacity: 0;
-    -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
+
+  &.modal-fx-slideLeft {
+    .modal-content {
+      -webkit-transform: translateX(-20%);
+           -o-transform: translateX(-20%);
+              transform: translateX(-20%);
+      opacity: 0;
+      -webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+      -o-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+      transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    }
+    &.is-active .modal-content {
+      -webkit-transform: translateX(0);
+           -o-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
   }
-  .modal.modal-fx-fadeInScale.is-active .modal-content {
-    -webkit-transform: scale(1);
-         -o-transform: scale(1);
-            transform: scale(1);
-    opacity: 1;
+
+  &.modal-fx-slideBottom {
+    .modal-content {
+      -webkit-transform: translateY(20%);
+           -o-transform: translateY(20%);
+              transform: translateY(20%);
+      opacity: 0;
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+    &.is-active .modal-content {
+      -webkit-transform: translateY(0);
+           -o-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
   }
-  .modal.modal-fx-slideRight .modal-content {
-    -webkit-transform: translateX(20%);
-         -o-transform: translateX(20%);
-            transform: translateX(20%);
-    opacity: 0;
-    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
-    -o-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
-    transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+
+  &.modal-fx-slideTop {
+    .modal-content {
+      -webkit-transform: translateY(-20%);
+           -o-transform: translateY(-20%);
+              transform: translateY(-20%);
+      opacity: 0;
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+    &.is-active .modal-content {
+      -webkit-transform: translateY(0);
+           -o-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
   }
-  .modal.modal-fx-slideRight.is-active .modal-content {
-    -webkit-transform: translateX(0);
-         -o-transform: translateX(0);
-            transform: translateX(0);
-    opacity: 1;
-  }
-  .modal.modal-fx-slideLeft .modal-content {
-    -webkit-transform: translateX(-20%);
-         -o-transform: translateX(-20%);
-            transform: translateX(-20%);
-    opacity: 0;
-    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
-    -o-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
-    transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
-  }
-  .modal.modal-fx-slideLeft.is-active .modal-content {
-    -webkit-transform: translateX(0);
-         -o-transform: translateX(0);
-            transform: translateX(0);
-    opacity: 1;
-  }
-  .modal.modal-fx-slideBottom .modal-content {
-    -webkit-transform: translateY(20%);
-         -o-transform: translateY(20%);
-            transform: translateY(20%);
-    opacity: 0;
-    -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-  }
-  .modal.modal-fx-slideBottom.is-active .modal-content {
-    -webkit-transform: translateY(0);
-         -o-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-  .modal.modal-fx-slideTop .modal-content {
-    -webkit-transform: translateY(-20%);
-         -o-transform: translateY(-20%);
-            transform: translateY(-20%);
-    opacity: 0;
-    -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-  }
-  .modal.modal-fx-slideTop.is-active .modal-content {
-    -webkit-transform: translateY(0);
-         -o-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-  .modal.modal-fx-fall.modal {
+
+  &.modal-fx-fall {
     -webkit-perspective: 1300px;
             perspective: 1300px;
+
+    .modal-content {
+      -webkit-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+      -webkit-transform: translateZ(600px) rotateX(20deg);
+              transform: translateZ(600px) rotateX(20deg);
+      opacity: 0;
+    }
+    &.is-active .modal-content {
+      -webkit-transition: all 0.3s ease-in;
+      -o-transition: all 0.3s ease-in;
+      transition: all 0.3s ease-in;
+      -webkit-transform: translateZ(0px) rotateX(0deg);
+              transform: translateZ(0px) rotateX(0deg);
+      opacity: 1;
+    }
   }
-  .modal.modal-fx-fall .modal-content {
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-    -webkit-transform: translateZ(600px) rotateX(20deg);
-            transform: translateZ(600px) rotateX(20deg);
-    opacity: 0;
-  }
-  .modal.modal-fx-fall.is-active .modal-content {
-    -webkit-transition: all 0.3s ease-in;
-    -o-transition: all 0.3s ease-in;
-    transition: all 0.3s ease-in;
-    -webkit-transform: translateZ(0px) rotateX(0deg);
-            transform: translateZ(0px) rotateX(0deg);
-    opacity: 1;
-  }
-  .modal.modal-fx-slideFall.modal {
+
+  &.modal-fx-slideFall.modal {
     -webkit-perspective: 1300px;
             perspective: 1300px;
+    .modal-content {
+      -webkit-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+      -webkit-transform: translate(30%) translateZ(600px) rotate(10deg);
+              transform: translate(30%) translateZ(600px) rotate(10deg);
+      opacity: 0;
+    }
+    &.is-active .modal-content {
+      -webkit-transition: all 0.3s ease-in;
+      -o-transition: all 0.3s ease-in;
+      transition: all 0.3s ease-in;
+      -webkit-transform: translate(0%) translateZ(0) rotate(0deg);
+              transform: translate(0%) translateZ(0) rotate(0deg);
+      opacity: 1;
+    }
   }
-  .modal.modal-fx-slideFall .modal-content {
-    -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-    -webkit-transform: translate(30%) translateZ(600px) rotate(10deg);
-            transform: translate(30%) translateZ(600px) rotate(10deg);
-    opacity: 0;
-  }
-  .modal.modal-fx-slideFall.is-active .modal-content {
-    -webkit-transition: all 0.3s ease-in;
-    -o-transition: all 0.3s ease-in;
-    transition: all 0.3s ease-in;
-    -webkit-transform: translate(0%) translateZ(0) rotate(0deg);
-            transform: translate(0%) translateZ(0) rotate(0deg);
-    opacity: 1;
-  }
+}
+.modal-background {
+  background-color: rgba($black, 0.86);
+  backdrop-filter: blur(4px);
+  opacity: 1;
+  height: 100vh;
+  width: 100vw;
+}
+
   .modal.modal-fx-newsPaper .modal-content {
     -webkit-transform: scale(0) rotate(720deg);
          -o-transform: scale(0) rotate(720deg);
@@ -465,5 +496,4 @@ div.container {
       margin-bottom: 1rem;
   }
   .modal .modal-background {
-    background-color: rgba($black, 0.86);
   }

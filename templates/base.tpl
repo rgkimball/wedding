@@ -16,6 +16,7 @@
     {% block stylesheets %}{% endblock %}
   </head>
   <body>
+    {% block beforecontainer %}{% endblock %}
     <div class="container">
       <h1>{% block heading %}{% endblock %}</h1>
       {% block pagecontent %}

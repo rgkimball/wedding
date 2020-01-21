@@ -13,37 +13,64 @@ div.container {
 
   .save-the-date.modal {
     margin: 0 auto;
+    max-width: 100vw;
     padding: 3em;
 
     .modal-content {
       height: fit-content;
       width: fit-content;
-    }
 
-    &.one {
-      .modal-content {
-        top: -12%;
-        background: url('/static/img/NYC_engagement_central_Park-5.JPG.jpg') center center no-repeat transparent;
+      // First modal box
+      &:nth-child(1) {
+        background: url('/static/img/NYC_engagement_central_Park-5.JPG.jpg') center center no-repeat $green;
+        background-size: auto 100%;  // leaving both attributes in means it will render approximately the right size before the img fully downloads
         background-size: cover;
+        left: -10%;
         overflow: hidden;
+        position: relative;
+        //transition-duration: 2s;
+        z-index: 2; // overlap second box
+
+          @media(max-width: $bp-mobile) {
+            left: 0;
+            margin: 0 1vw;
+            position: absolute;
+            top: 1em;
+            width: 98vw;
+          }
 
         .gold-script {
           font-size: 10em;
+          left: -6px;
           margin: 0.3em -5px;
+          position: relative;
+          top: -42px;
           transform: rotate(-9deg);
           white-space: nowrap;
+
+          @media(max-device-width: $bp-mobile) {
+              font-size: 7em;
+          }
+          @media(max-device-width: $bp-mini) {
+              font-size: 5em;
+          }
         }
 
         .bottom {
           color: $white;
+          font-size: 1.7em;
+          text-shadow: 2px 2px 2px $black;
         }
       }
-    }
-    &.two {
-      background: $white;
-      .modal-content {
-        top: 40%;
-        right: 10%;
+
+      // Second modal box
+      &:nth-child(2) {
+        background: $white;
+        min-height: 23em;
+        position: relative;
+        right: -14%;
+        top: -5%;
+        z-index: 1;
       }
     }
     &, p, div {
