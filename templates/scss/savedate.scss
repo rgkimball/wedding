@@ -3,28 +3,48 @@
 
 div.container {
 
-  #bigtext {
+  .gold-script {
     background: -webkit-linear-gradient(#ae8625, #f7ef8a, #d2ac47, #edc967);
     //background: -webkit-linear-gradient(#f9f295, #e0aa3e, #f7ef8a, #b88a44);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin: -0.2em 0;  // this font tends to add a lot of extra space
   }
 
   .save-the-date.modal {
     margin: 0 auto;
     padding: 3em;
 
-    &, .modal-content {
+    .modal-content {
       height: fit-content;
       width: fit-content;
     }
 
     &.one {
-      top: 20%;
+      .modal-content {
+        top: -12%;
+        background: url('/static/img/NYC_engagement_central_Park-5.JPG.jpg') center center no-repeat transparent;
+        background-size: cover;
+        overflow: hidden;
+
+        .gold-script {
+          font-size: 10em;
+          margin: 0.3em -5px;
+          transform: rotate(-9deg);
+          white-space: nowrap;
+        }
+
+        .bottom {
+          color: $white;
+        }
+      }
     }
     &.two {
-      top: 40%;
-      right: 10%;
+      background: $white;
+      .modal-content {
+        top: 40%;
+        right: 10%;
+      }
     }
     &, p, div {
       color: $white;

@@ -18,7 +18,7 @@
   font-family: $text;
 }
 
-em {
+em, .em {
   font-family: $handwritten;
 }
 
@@ -42,6 +42,16 @@ body {
     }
     font-family: $script;
     font-size: $base-font-size + $heading-scale * (6 - $i);
+
+    &.centered {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    &.bottom {
+      bottom: 5%;
+    }
   }
 }
 
