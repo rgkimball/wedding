@@ -8,8 +8,6 @@
     <title>
       Kathryn & Rob - {% block title %}{% endblock %}
     </title>
-
-    <script src="{% static 'js/main.js' %}"></script>
     {% block scripts %}{% endblock %}
     <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" />
     <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/x-icon" />
@@ -18,9 +16,18 @@
   <body>
     {% block beforecontainer %}{% endblock %}
     <div class="container">
-      {% block pagecontent %}
-      {% endblock %}
+        <div class="centered">
+          <h1 class="centered stamp">K <span class="amp">+</span> R</h1>
+          {% block pagecontent %}
+          {% endblock %}
+        </div>
     </div>
+    <footer>
+        <div>
+            <span>&copy; 2020 Kathryn & Rob</span>
+        </div>
+    </footer>
     {% block footerscripts %}{% endblock %}
+{#    <script type="module" src="{% static 'js/main.js' %}"></script>#}
   </body>
 </html>

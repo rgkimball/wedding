@@ -18,13 +18,14 @@ from django.urls import path
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-
-
 from wedding import views
+
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
     path(r'', views.SaveDateView.as_view()),
+    path(r'photos/', views.PhotosView.as_view()),
+    path(r'events/', views.EventsView.as_view()),
     # path(r'rsvp/', views.SaveDateView, name='rsvp'),
 ]
 

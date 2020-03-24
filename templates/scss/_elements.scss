@@ -1,0 +1,133 @@
+
+.modal {
+  //display: -webkit-box;
+  //display: -webkit-flex;
+  //display: -ms-flexbox;
+  //display: flex;
+  opacity: 0;
+  visibility: hidden;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.modal-fx-3dSign.modal {
+    -webkit-perspective: 1300px;
+            perspective: 1300px;
+
+    .modal-content {
+      position: relative;
+      -webkit-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+      -webkit-transform: rotateX(-60deg);
+              transform: rotateX(-60deg);
+      -webkit-transform-origin: 50% 0;
+           -o-transform-origin: 50% 0;
+              transform-origin: 50% 0;
+      opacity: 0;
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+
+    &.is-active .modal-content {
+      -webkit-transform: rotateX(0deg);
+              transform: rotateX(0deg);
+      opacity: 1;
+    }
+  }
+}
+
+.modal-background {
+  background-color: rgba($black, 0.86);
+  backdrop-filter: blur(4px);
+  opacity: 1;
+  height: 100vh;
+  width: 100vw;
+
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+span.amp {
+  font-size: 0.5em;
+  position: relative;
+  top: -0.4em;
+}
+
+// Photos grid
+.framed-photo {
+    background: $white;
+    box-shadow: 2px 2px 3px $grey-light;
+    border: 1px solid lighten($brown, 20%);
+    border-radius: 1px;
+    padding: 0.4em;
+    width: 100%;
+
+    img {
+      height: 100%;
+      margin-bottom: -0.4em;
+      width: 100%;
+    }
+}
+
+.grid {
+
+  width: 100%;
+
+  .grid-item {
+    @extend .framed-photo;
+
+    float: left;
+    margin: 0 0.2em 0.2em 0.2em;
+    transition: opacity 0.5s, border-color 0.5s, width 1s;
+
+    @media screen and (min-width: $bp-tablet){
+      width: calc(50% - 0.4em);
+    }
+
+    @media screen and (min-width: $bp-fullhd){
+      width: calc(33.3% - 0.4em);
+    }
+
+    &.enlarged {
+      position: fixed;
+      top: calc(50vh - 50%);
+      left: calc(50vw - 50%);
+      margin: 1em auto;
+      max-height: 300px;
+      width: calc(69% - 2em);
+      z-index: 1000;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      //&:before {
+      //  position: fixed;
+      //  background: black;
+      //  top: 0;
+      //  left: 0;
+      //  right: 0;
+      //  bottom: 0;
+      //  display: block;
+      //  content: '';
+      //}
+    }
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+      border-color: $brown;
+    }
+
+    &.grid-item--width2 {
+      width: 400px;
+    }
+  }
+
+
+
+}

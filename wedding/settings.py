@@ -30,7 +30,7 @@ DEBUG = True if ENV is 'dev' else False
 if ENV is 'dev':
     ALLOWED_HOSTS = []
 elif ENV is 'test':
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+    ALLOWED_HOSTS = ['wedding.rkstage.com', '127.0.0.1', 'localhost']
 elif ENV is 'prod':
     ALLOWED_HOSTS = ['kathrynandrob.com', 'www.kathrynandrob.com']
 

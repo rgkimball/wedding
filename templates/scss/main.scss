@@ -11,6 +11,7 @@
 
 // rgk
 @import '_vars';
+@import '_elements';
 
 // Global fonts, colors
 body, button, input, select, textarea {
@@ -23,18 +24,32 @@ strong {
   font-weight: 700;
 }
 
+.script {
+  font-family: $script;
+}
+.stamp {
+  font-family: $stamp;
+}
+
 em, .em {
   font-family: $handwritten;
 }
 
 html {
+  background: $white;
   overflow-y: unset;
 }
 
 body {
-  background: url('https://www.thesebastianvail.com/sites/default/files/Getalong%20Rd_0.JPG') no-repeat center center $black;
+  background: $white;
   background-size: cover;
+  font-size: clamp(16px, 4vw, 22px);
   min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 @for $i from 1 through 6 {
@@ -55,76 +70,50 @@ body {
     }
 
     &.bottom {
-      bottom: 5%;
+      bottom: 1em;
     }
   }
 }
 
+main,
 div.container {
   //background: $green;
   box-sizing: border-box;
-  margin: 0 auto;
-  padding: 0;
+  margin: 2em auto;
+  padding: 1em;
+  max-width: $bp-desktop;
 
-  position: fixed;
-  //display: -webkit-box;
-  //display: -webkit-flex;
-  //display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  top: 0;
-  left: 0;
-  right: 0;
+  z-index: 1;
+}
+
+footer {
+  background: url('/static/img/rock_transparent.png') top center $white;
+  background-size: cover;
   bottom: 0;
-}
+  height: 100vw;
+  margin-top: -50vw;
+  width: 100%;
 
-.modal {
-  //display: -webkit-box;
-  //display: -webkit-flex;
-  //display: -ms-flexbox;
-  //display: flex;
-  opacity: 0;
-  visibility: hidden;
-
-  &.is-active {
-    opacity: 1;
-    visibility: visible;
+  div {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
   }
 
-  &.modal-fx-3dSign.modal {
-    -webkit-perspective: 1300px;
-            perspective: 1300px;
+  span {
+    @extend em;
+    color: $yellow;
+    position: absolute;
+    bottom: 2%;
+    left: 20%;
 
-    .modal-content {
-      position: relative;
-      -webkit-transform-style: preserve-3d;
-              transform-style: preserve-3d;
-      -webkit-transform: rotateX(-60deg);
-              transform: rotateX(-60deg);
-      -webkit-transform-origin: 50% 0;
-           -o-transform-origin: 50% 0;
-              transform-origin: 50% 0;
-      opacity: 0;
-      -webkit-transition: all 0.3s;
-      -o-transition: all 0.3s;
-      transition: all 0.3s;
-    }
-
-    &.is-active .modal-content {
-      -webkit-transform: rotateX(0deg);
-              transform: rotateX(0deg);
-      opacity: 1;
-    }
   }
-}
-
-.modal-background {
-  background-color: rgba($black, 0.86);
-  backdrop-filter: blur(4px);
-  opacity: 1;
-  height: 100vh;
-  width: 100vw;
-
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
 }

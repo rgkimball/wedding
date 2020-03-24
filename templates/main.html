@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'css/savedate.css' %}" type="text/css" />
+{% endblock %}
+
+{% block title %}Save Our Date{% endblock %}
+
+{% block beforecontainer %}
+{#<div class="modal-background"></div>#}
+{% endblock %}
+{% block pagecontent %}
+        <h4 class="centered">September 18, 2020 &middot; Vail, CO</h4>
+        <p></p>
+        <p>Welcome, Friends & Family!</p>
+        <p>Thank you for joining in celebration of our upcoming wedding. We are so excited to share this special day with all of you. Please use this website to help you plan the details of your journey to Vail. We can't wait to celebrate with all of you this fall!</p>
+        <p>We will continue to update this website as we get closer to our big day, so please check back later (or let us know!) if you can't find what you're looking for.</p>
+        <p>With love,</p>
+        <p>Kathryn & Rob</p>
+    <div class="framed-photo">
+        <img src="/static/img/gallery/{{ main_image }}" alt="" />
+    </div>
+    <nav>
+        <a class="button" href="/photos" alt="">Photos</a>
+        <a class="button" href="/events" alt="">Event Information</a>
+        <a class="button" href="/travel" alt="">Travel Information</a>
+        <a class="button" href="/party" alt="">Wedding Party</a>
+        <a class="button" href="/registry" alt="">Registry</a>
+    </nav>
+{% endblock %}

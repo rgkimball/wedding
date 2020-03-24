@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Events {% endblock %}
+
+{% block pagecontent %}
+    <div class="framed-photo">
+        <img src="/static/img/arabelle.jpeg" alt="The Arabelle at Vail Square" />
+    </div>
+
+    {% for event in events %}
+
+        <h2>{{ event }}</h2>
+
+    {% endfor %}
+
+{% endblock %}
+

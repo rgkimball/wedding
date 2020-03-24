@@ -9,7 +9,7 @@ div.container {
 
     &.one {
       .modal-content {
-        background: url('/static/img/NYC_engagement_central_Park-5.JPG.jpg') center center no-repeat $green;
+        background: url('/static/img/std_cover.jpg') center center no-repeat $green;
         background-size: auto 100%;  // leaving both attributes in means it will render approximately the right size before the img fully downloads
         background-size: cover;
         overflow: hidden;
@@ -28,6 +28,7 @@ div.container {
         .bottom {
           color: $white;
           font-size: 1.7em;
+          position: relative;
           text-shadow: 2px 2px 2px $black;
         }
       }
@@ -43,6 +44,27 @@ div.container {
     &, p, div {
       color: $white;
     }
+  }
+
+  .centered {
+
+
+
+    p {
+      margin-bottom: 2em;
+    }
+
+    nav {
+      a.button {
+        display: block;
+        //font-family: $script;
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 1em auto;
+        width: 100%;
+      }
+    }
+
   }
 
 }
