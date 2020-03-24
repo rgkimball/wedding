@@ -61,7 +61,7 @@ body {
       font-weight: bold;
     }
     font-family: $script;
-    font-size: $base-font-size + $heading-scale * (6 - $i);
+    font-size: $base-font-size + max(0.5, $heading-scale * (6 - $i));
 
     &.centered {
       margin-left: auto;
@@ -110,10 +110,58 @@ footer {
 
   span {
     @extend em;
+    @extend .no-highlight;
+
     color: $yellow;
     position: absolute;
     bottom: 2%;
     left: 20%;
 
   }
+}
+
+//
+// Page-specific styles
+//
+body.homepage {
+
+  h1 + h4 {
+    margin-bottom: 0.5em;
+  }
+
+}
+
+// Events page
+body.events .event {
+
+  h2 {
+    margin: 1em 0 -0.3em;
+  }
+
+  h5 {
+    font-weight: normal;
+    margin-left: 0.75em;
+  }
+
+  table {
+    margin-left: 1.5em;
+    width: 100%;
+
+    tr, th, td {
+      padding: 0.6em 0.4em 0.6em 0;
+    }
+
+    th {
+      width: 20%;
+    }
+
+    tr {
+      width: 100%;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $grey;
+      }
+    }
+  }
+
 }

@@ -7365,6 +7365,14 @@ a.tag:hover {
   }
 }
 
+.no-highlight::selection, footer span::selection, .framed-photo::selection, .grid .grid-item::selection, h1.centered.stamp::selection, .no-highlight ::selection, footer span ::selection, .framed-photo ::selection, .grid .grid-item ::selection, h1.centered.stamp ::selection {
+  background: transparent;
+}
+
+.no-highlight::-moz-selection, footer span::-moz-selection, .framed-photo::-moz-selection, .grid .grid-item::-moz-selection, h1.centered.stamp::-moz-selection, .no-highlight ::-moz-selection, footer span ::-moz-selection, .framed-photo ::-moz-selection, .grid .grid-item ::-moz-selection, h1.centered.stamp ::-moz-selection {
+  background: transparent;
+}
+
 .modal {
   opacity: 0;
   visibility: hidden;
@@ -7416,6 +7424,23 @@ span.amp {
   font-size: 0.5em;
   position: relative;
   top: -0.4em;
+}
+
+body:not(.homepage) h1 span.amp {
+  transition: transform 0.5s, text-shadow 0.5s;
+}
+
+body:not(.homepage) h1 span.amp:hover {
+  cursor: pointer;
+  text-shadow: 1px 1px 3px #6D4C3D;
+}
+
+body:not(.homepage) h1 span.amp:active {
+  -webkit-transform: rotate(720deg);
+  -moz-transform: rotate(720deg);
+  -ms-transform: rotate(720deg);
+  -o-transform: rotate(720deg);
+  transform: rotate(720deg);
 }
 
 .framed-photo, .grid .grid-item {
@@ -7603,7 +7628,7 @@ h6 {
   color: #556F77;
   font-weight: bold;
   font-family: "Tangerine", cursive;
-  font-size: 1em;
+  font-size: 1.5em;
 }
 
 h6.centered {
@@ -7653,4 +7678,38 @@ footer span {
   position: absolute;
   bottom: 2%;
   left: 20%;
+}
+
+body.homepage h1 + h4 {
+  margin-bottom: 0.5em;
+}
+
+body.events .event h2 {
+  margin: 1em 0 -0.3em;
+}
+
+body.events .event h5 {
+  font-weight: normal;
+  margin-left: 0.75em;
+}
+
+body.events .event table {
+  margin-left: 1.5em;
+  width: 100%;
+}
+
+body.events .event table tr, body.events .event table th, body.events .event table td {
+  padding: 0.6em 0.4em 0.6em 0;
+}
+
+body.events .event table th {
+  width: 20%;
+}
+
+body.events .event table tr {
+  width: 100%;
+}
+
+body.events .event table tr:not(:last-child) {
+  border-bottom: 1px solid #7a7a7a;
 }

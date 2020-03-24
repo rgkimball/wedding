@@ -1,4 +1,13 @@
 
+.no-highlight {
+  &::selection, ::selection { background: transparent; }
+  &::-moz-selection, ::-moz-selection { background: transparent; }
+}
+
+h1.centered.stamp {
+  @extend .no-highlight;
+}
+
 .modal {
   //display: -webkit-box;
   //display: -webkit-flex;
@@ -55,10 +64,29 @@ span.amp {
   font-size: 0.5em;
   position: relative;
   top: -0.4em;
+
+  body:not(.homepage) h1 & {
+    transition: transform 0.5s, text-shadow 0.5s;
+
+    &:hover {
+      cursor: pointer;
+      text-shadow: 1px 1px 3px $brown;
+    }
+
+    &:active {
+      -webkit-transform: rotate(720deg);
+      -moz-transform: rotate(720deg);
+      -ms-transform: rotate(720deg);
+      -o-transform: rotate(720deg);
+      transform: rotate(720deg);
+    }
+  }
 }
 
 // Photos grid
 .framed-photo {
+    @extend .no-highlight;
+
     background: $white;
     box-shadow: 2px 2px 3px $grey-light;
     border: 1px solid lighten($brown, 20%);

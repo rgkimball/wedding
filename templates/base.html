@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,7 +14,7 @@
     <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/x-icon" />
     {% block stylesheets %}{% endblock %}
   </head>
-  <body>
+  <body class="{{ safe_title }}">
     {% block beforecontainer %}{% endblock %}
     <div class="container">
         <div class="centered">
@@ -24,7 +25,7 @@
     </div>
     <footer>
         <div>
-            <span>&copy; 2020 Kathryn & Rob</span>
+            <span>Designed and built by Kathryn & Rob</span>
         </div>
     </footer>
     {% block footerscripts %}{% endblock %}

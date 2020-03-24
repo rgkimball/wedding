@@ -8,8 +8,37 @@
     </div>
 
     {% for event in events %}
-
-        <h2>{{ event }}</h2>
+        <div class="event">
+            <h2>{{ event.name }}</h2>
+            <h5>{{ event.description|linebreaks }}</h5>
+            <table>
+                <tr>
+                    <th>When?</th>
+                    <td>{{ event.date|date:'F d, Y \a\t f A T' }}</td>
+                </tr>
+                <tr>
+                    <th>Where?</th>
+                    <td>{{ event.location|linebreaks }}</td>
+                </tr>
+                {% if event.attire %}<tr>
+                    <th>Attire</th>
+                    <td>{{ event.attire|linebreaks }}</td>
+                </tr>{% endif %}
+                {% if event.transportation %}<tr>
+                    <th>Transportation</th>
+                    <td>{{ event.transportation|linebreaks }}</td>
+                </tr>{% endif %}
+                {% if event.parking %}<tr>
+                    <th>Parking</th>
+                    <td>{{ event.parking|linebreaks }}</td>
+                </tr>{% endif %}
+                {% if event.other_info %}<tr>
+                    <th>Other Information</th>
+                    <td>{{ event.other_info|linebreaks }}</td>
+                </tr>{% endif %}
+            </table>
+            {% if no_children %}<em>We kindly request you leave your children at home for the {{ event.name }}.</em>{% endif %}
+        </div>
 
     {% endfor %}
 

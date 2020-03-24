@@ -57,7 +57,6 @@ class PartyAdmin(admin.ModelAdmin):
     )
 
     list_filter = (
-        'type',
         'category',
         'is_invited',
         'is_attending',

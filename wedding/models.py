@@ -13,14 +13,17 @@ class Event(models.Model):
     name = models.TextField()
     date = models.DateTimeField()
     description = models.TextField()
-    location = models.TextField(null=True, default=None)
-    attire = models.TextField(null=True, default=None)
-    transportation = models.TextField(null=True, default=None)
-    parking = models.TextField(null=True, default=None)
-    other_info = models.TextField(null=True, default=None)
+    location = models.TextField(null=True, default=None, blank=True)
+    attire = models.TextField(null=True, default=None, blank=True)
+    transportation = models.TextField(null=True, default=None, blank=True)
+    parking = models.TextField(null=True, default=None, blank=True)
+    other_info = models.TextField(null=True, default=None, blank=True)
     wedding_party_only = models.NullBooleanField(default=False)
     rehearsal_only = models.NullBooleanField(default=False)
     no_children = models.NullBooleanField(default=False)
+
+    def __str__(self):
+        return '{}'.format(self.name)
 
 
 class Party(models.Model):
