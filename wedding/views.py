@@ -38,6 +38,26 @@ class RSVPView(TemplateView):
     template_name = 'rsvp.html'
 
 
+class TravelView(TemplateView):
+    template_name = 'travel.html'
+
+    def get(self, request, *args, **kwargs):
+
+        return render(request, self.template_name, context={
+            'safe_title': 'travel',
+        })
+
+
+class WeddingPartyView(TemplateView):
+    template_name = 'party.html'
+
+    def get(self, request, *args, **kwargs):
+
+        return render(request, self.template_name, context={
+            'safe_title': 'party',
+        })
+
+
 class PhotosView(TemplateView):
     template_name = 'photos.html'
 
@@ -47,7 +67,7 @@ class PhotosView(TemplateView):
         shuffled = [x for x in sample(gallery_images, len(gallery_images))]
 
         return render(request, self.template_name, context={
-            'safe_title': 'gallery',
+            'safe_title': 'photos',
             'images': shuffled,
         })
 

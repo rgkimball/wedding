@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block metatags %}<meta name="canonical" content="https://kathrynandrob.com" />{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{% static 'css/savedate.css' %}" type="text/css" />
@@ -21,11 +22,7 @@
     <div class="framed-photo">
         <img src="/static/img/gallery/{{ main_image }}" alt="" />
     </div>
-    <nav>
-        <a class="button" href="/photos" alt="">Photos</a>
-        <a class="button" href="/events" alt="">Event Information</a>
-        <a class="button" href="/travel" alt="">Travel Information</a>
-        <a class="button" href="/party" alt="">Wedding Party</a>
-        <a class="button" href="/registry" alt="">Registry</a>
-    </nav>
+    <blockquote>
+        <h3 class="has-text-centered"><em>#grablifebythekimballs</em></h3>
+    </blockquote>
 {% endblock %}

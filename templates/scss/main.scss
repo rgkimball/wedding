@@ -18,34 +18,16 @@ body, button, input, select, textarea {
   color: $black;
   font-family: $text;
 }
-
-strong {
-  color: unset;
-  font-weight: 700;
-}
-
-.script {
-  font-family: $script;
-}
-.stamp {
-  font-family: $stamp;
-}
-
-em, .em {
-  font-family: $handwritten;
-}
-
 html {
-  background: $white;
   overflow-y: unset;
 }
 
 body {
   background: $white;
   background-size: cover;
-  font-size: clamp(16px, 4vw, 22px);
+  font-size: 4vw;
+  font-size: clamp(16px, 4vw, 22px); // more modern browsers only
   min-height: 100vh;
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -75,12 +57,28 @@ body {
   }
 }
 
+nav {
+  .button {
+    background: transparent;
+    color: $brown;
+    display: block;
+    font-weight: normal;
+    transition: color 0.5s, border-color 0.5s;
+
+    &:hover {
+      $c: darken($yellow, 30%);
+      color: $c;
+      border-color: $c;
+    }
+  }
+}
+
 main,
 div.container {
   //background: $green;
   box-sizing: border-box;
-  margin: 2em auto;
-  padding: 1em;
+  margin: 0 auto;
+  padding: 2em 1em;
   max-width: $bp-desktop;
 
   display: -webkit-box;
@@ -88,6 +86,14 @@ div.container {
   display: -ms-flexbox;
   display: flex;
   z-index: 1;
+
+  > div.centered {
+    width: 100%;
+  }
+
+  table {
+    box-sizing: border-box;
+  }
 }
 
 footer {
@@ -113,6 +119,8 @@ footer {
     @extend .no-highlight;
 
     color: $yellow;
+    font-size: 2.4vw;
+    font-size: clamp(8px, 2.4vw, 34px);  // more modern browsers only
     position: absolute;
     bottom: 2%;
     left: 20%;
@@ -123,12 +131,77 @@ footer {
 //
 // Page-specific styles
 //
+
+// Nav highlighter
+$pages: 'photos', 'events', 'travel', 'events', 'party', 'registry';
+
+@each $page in $pages {
+
+  body.#{$page} [data-page="#{$page}"] {
+    border-bottom: 0px !important;
+    border-top: 0px !important;
+    color: darken($yellow, 30%);
+  }
+
+}
+
+// Main page
 body.homepage {
 
+  // Header & date/location
   h1 + h4 {
     margin-bottom: 0.5em;
   }
 
+  // Hashtag
+  blockquote {
+    font-size: 0.7em;
+  }
+
+  nav .button[data-page="homepage"] {
+    display: none !important;
+  }
+
+}
+
+body:not(.homepage) {
+  nav {
+    height: auto;
+    margin: 0 auto 1em;
+    text-align: center;
+
+    &:not(.active) {
+      display: none;
+      height: 0;
+    }
+
+    .button {
+      border: 0;
+      margin-right: 1em;
+
+      &:not(.active) {
+        border-bottom: 1px solid $brown;
+        border-top: 1px solid $brown;
+        border-radius: 2px;
+      }
+    }
+
+    @media screen and (min-width: $bp-tablet) {
+      border-top-color: $brown;
+      display: inline-flex;
+    }
+  }
+}
+
+body.dark {
+
+  &, footer {
+    background: $grey-darker;
+  }
+
+  h1 {
+    color: $white;
+  }
 }
 
 // Events page
@@ -144,8 +217,9 @@ body.events .event {
   }
 
   table {
-    margin-left: 1.5em;
-    width: 100%;
+    $lmarg: 1.5em;
+    margin-left: $lmarg;
+    width: calc(100% - #{$lmarg});
 
     tr, th, td {
       padding: 0.6em 0.4em 0.6em 0;
@@ -164,4 +238,45 @@ body.events .event {
     }
   }
 
+}
+
+// Wedding Party
+.party-people {
+  $spacing: 2em;
+  .party-person {
+    display: flow-root;
+    margin: $spacing 0;
+    text-align: center;
+
+    @media (min-width: $bp-tablet) {
+      text-align: left;
+
+      img {
+        @extent .framed-photo;
+        background: $white;
+        padding: 1em;
+        border: 1px solid $brown;
+        //border-radius: 50%;
+        float: right;
+      }
+
+      &:nth-child(2n) {
+        text-align: right;
+        img { float: left }
+      }
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $brown;
+    }
+
+    h2 {
+      margin-bottom: -0.25em;
+    }
+    h5 {
+      font-family: $stamp;
+      font-weight: normal;
+      margin-bottom: $spacing;
+    }
+  }
 }

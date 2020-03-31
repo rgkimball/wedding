@@ -2,6 +2,37 @@
 
 
 (function (window) {
+
+    const headerNav = (function() {
+
+        const elements = {
+            $body: document.querySelector('body'),
+            $button: document.querySelector('h1.stamp .amp'),
+            $nav: document.querySelector('nav'),
+        };
+
+        return {
+            init: function() {
+
+                elements.$button.onclick = function($this) {
+                    console.log($this)
+
+                    if (!elements.$body.classList.contains('homepage')) {
+                        // Toggler
+                        if (!elements.$nav.classList.contains('active')) {
+                            elements.$nav.classList.add('active');
+                        } else {
+                            elements.$nav.classList.remove('active');
+                        }
+                    }
+
+                };
+
+            }
+        };
+
+    })();
+
     const modalFX = (function () {
 
         const elements = {
@@ -73,22 +104,39 @@
         }
     })();
 
-    window.onload = function(){
+    if (!window.hasOwnProperty('load_functions')) {
+        window.load_functions = Array();
+    }
 
+    window.load_functions.push(function(){
+
+        // Initialize nav
+        headerNav.init();
 
         // Initialize modal windows
-        // modalFX.init();
+        modalFX.init();
 
-        // let $modals = document.querySelectorAll('.save-the-date.modal');
+        let $modals = document.querySelectorAll('.save-the-date.modal');
 
         // hack.
         window.NodeList.prototype.reverse = Array.prototype.reverse;
 
-        // $modals.forEach(function($m, index) {
-        //     setTimeout(function(){
-        //         $m.classList.add('is-active');
-        //     }, 350 * (index + 1));
-        // });
+        $modals.forEach(function($m, index) {
+            setTimeout(function(){
+                $m.classList.add('is-active');
+            }, 350 * (index + 1));
+        });
+
+
+
+    });
+
+    // Call each
+    window.onload = function() {
+
+        window.load_functions.forEach(function(fn) {
+            fn()
+        });
 
     };
 

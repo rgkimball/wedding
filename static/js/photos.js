@@ -21,8 +21,9 @@
         };
 
         const enlarge = function(tgt, test) {
-            let $all = document.getElementsByClassName(elements.items),
-                $this = tgt.toElement;
+            let $all = document.querySelectorAll(elements.items),
+                $this = tgt.toElement,
+                $body = document.querySelector('body');
 
             Array.prototype.forEach.call($all, function($e) {
                 $e.classList.remove('enlarged')
@@ -42,9 +43,15 @@
         }
     })();
 
-    window.onload = function(){
+    if (!window.hasOwnProperty('load_functions')) {
+        window.load_functions = Array();
+    }
+
+    window.load_functions.push(function(){
+
         gallery.init()
-    };
+
+    });
 
 })(window, undefined);
 

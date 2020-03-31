@@ -30,7 +30,7 @@ DEBUG = True if ENV is 'dev' else False
 if ENV is 'dev':
     ALLOWED_HOSTS = []
 elif ENV is 'test':
-    ALLOWED_HOSTS = ['wedding.rkstage.com', '127.0.0.1', 'localhost']
+    ALLOWED_HOSTS = ['rgk.pythonanywhere.com', 'wedding.rkstage.com', '127.0.0.1', 'localhost']
 elif ENV is 'prod':
     ALLOWED_HOSTS = ['kathrynandrob.com', 'www.kathrynandrob.com']
 
@@ -82,12 +82,23 @@ WSGI_APPLICATION = 'wedding.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
+DATABASES = {}
+
+# Using sqlite locally, mysql in test & prod
+if ENV is 'dev':
+    DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}
+else:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'rgk$wedding',
+        'USER': 'rgk',
+        'PASSWORD': 'indaclub1',
+        'HOST': 'rgk.mysql.pythonanywhere-services.com',
+        'PORT': '',
+    }
 
 
 # Password validation

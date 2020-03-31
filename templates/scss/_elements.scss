@@ -1,4 +1,25 @@
 
+
+strong {
+  color: unset;
+  font-weight: 700;
+}
+
+.script {
+  font-family: $script;
+}
+.stamp {
+  font-family: $stamp;
+}
+
+em, .em {
+  font-family: $handwritten;
+}
+
+.blue {color: $blue;}
+.green {color: $green;}
+.yellow {color: $yellow;}
+
 .no-highlight {
   &::selection, ::selection { background: transparent; }
   &::-moz-selection, ::-moz-selection { background: transparent; }
@@ -64,23 +85,6 @@ span.amp {
   font-size: 0.5em;
   position: relative;
   top: -0.4em;
-
-  body:not(.homepage) h1 & {
-    transition: transform 0.5s, text-shadow 0.5s;
-
-    &:hover {
-      cursor: pointer;
-      text-shadow: 1px 1px 3px $brown;
-    }
-
-    &:active {
-      -webkit-transform: rotate(720deg);
-      -moz-transform: rotate(720deg);
-      -ms-transform: rotate(720deg);
-      -o-transform: rotate(720deg);
-      transform: rotate(720deg);
-    }
-  }
 }
 
 // Photos grid
@@ -121,13 +125,9 @@ span.amp {
     }
 
     &.enlarged {
-      position: fixed;
-      top: calc(50vh - 50%);
-      left: calc(50vw - 50%);
       margin: 1em auto;
-      max-height: 300px;
-      width: calc(69% - 2em);
-      z-index: 1000;
+      width: 100%;
+      //width: calc(69% - 2em);
 
       &:hover {
         opacity: 1;
@@ -135,13 +135,14 @@ span.amp {
 
       //&:before {
       //  position: fixed;
-      //  background: black;
+      //  background: rgba($black, 0.2);
       //  top: 0;
       //  left: 0;
       //  right: 0;
       //  bottom: 0;
       //  display: block;
       //  content: '';
+      //  z-index: -1;
       //}
     }
 

@@ -26,6 +26,8 @@ urlpatterns = [
     path(r'', views.SaveDateView.as_view()),
     path(r'photos/', views.PhotosView.as_view()),
     path(r'events/', views.EventsView.as_view()),
+    path(r'travel/', views.TravelView.as_view()),
+    path(r'party/', views.WeddingPartyView.as_view()),
     # path(r'rsvp/', views.SaveDateView, name='rsvp'),
 ]
 
