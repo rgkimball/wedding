@@ -1,6 +1,9 @@
+{% load static %}
+
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="all" />
 
 <meta name="description" content="Welcome to Kathryn Bodine & Rob Kimball's wedding website! Our wedding will be held on September 18, 2020 in Vail, CO. See event details, travel information, photos and read our story." />
 
@@ -8,9 +11,30 @@
 <meta name="geo.placename" content="Vail, Colorado" />
 <meta name="geo.region" content="US-CO" />
 
-<meta name="og:image" content="/static/img/gallery/NYC_engagement_central_park-22.jpg" />
+<meta name="og:image" content="{% static 'img/gallery/NYC_engagement_central_park-22.jpg' %}" />
 <meta name="og:type" content="website" />
 <meta name="og:locale" content="en-US" />
 <meta name="og:title" content="Kathryn Bodine & Rob Kimball, 9.18.20" />
 <meta name="og:site_name" content="Kathryn Bodine & Rob Kimball Wedding Website" />
 <meta name="og:url" content="http://kathrynandrob.com" />
+
+<meta name="msapplication-TileColor" content="#ffc40d">
+<link name="msapplication-TileImage" href="{% static 'img/apple-touch-icon.png' %}">
+<meta name="theme-color" content="#ffffff">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-37740192-10"></script>
+<script>
+    if (window.location.href.indexOf("kathrynandrob.com") > -1) {
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-37740192-10');
+    } else {
+        console.log('Test environment.')
+    }
+</script>
