@@ -118,4 +118,4 @@ GitHub.sublime-settings
 
 # Wedding Website
 .venv/*
-
+.*.settings.json

@@ -23,6 +23,7 @@ from wedding import views
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
+    path(r'api/', views.API.as_view()),
     path(r'', views.SaveDateView.as_view()),
     path(r'photos/', views.PhotosView.as_view()),
     path(r'events/', views.EventsView.as_view()),
