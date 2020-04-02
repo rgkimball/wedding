@@ -7523,7 +7523,7 @@ html {
 body {
   background: #efefef;
   background-size: cover;
-  font-size: 4vw;
+  font-size: 1.2em;
   font-size: clamp(16px, 4vw, 22px);
   min-height: 100vh;
   top: 0;
