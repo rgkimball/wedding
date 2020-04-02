@@ -38,7 +38,7 @@ class DictObj:
                 return default
 
 
-ENV = 'dev'  # dev|test|prod
+ENV = 'test'  # dev|test|prod
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -126,7 +126,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.{}'.format(CONFIG.DB.ENGINE),
         'NAME': CONFIG.DB.NAME,
         'USER': CONFIG.DB.get('USER', ''),
-        'PASSWORD': CONFIG.get('PASSWORD', ''),
+        'PASSWORD': CONFIG.DB.get('PASSWORD', ''),
         'HOST': CONFIG.DB.get('HOST', ''),
         'PORT': CONFIG.DB.get('PORT', ''),
     },
