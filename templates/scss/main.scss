@@ -57,13 +57,15 @@ body {
   }
 }
 
+div.container nav,
 nav {
-  .button {
+  a.button {
     background: transparent;
     color: $brown;
-    display: block;
+    font-family: $stamp;
     font-weight: normal;
     transition: color 0.5s, border-color 0.5s;
+    text-decoration: none;
 
     &:hover {
       $c: darken($yellow, 30%);
@@ -94,6 +96,27 @@ div.container {
   table {
     box-sizing: border-box;
   }
+
+
+  a {
+    color: $color-links;
+    text-decoration: underline;
+    transition: color 500ms;
+
+    &:hover {
+      color: lighten($color-links, 10%);
+    }
+
+    &:visited {
+      color: darken($color-links, 10%);
+
+      &:hover {
+        color: lighten($color-links, 10%);
+      }
+
+    }
+  }
+
 }
 
 footer {
@@ -186,9 +209,21 @@ body:not(.homepage) {
       }
     }
 
-    @media screen and (min-width: $bp-tablet) {
-      border-top-color: $brown;
-      display: inline-flex;
+
+  @media screen and (min-width: $bp-tablet) {
+    border-spacing: .5em;
+    border-top-color: $brown;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+
+      a.button {
+        background: transparent;
+        color: $brown;
+        display: table-cell;
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
   }
 }
@@ -240,6 +275,23 @@ body.events .event {
 
 }
 
+// Travel Page
+
+body.travel {
+
+  .map {
+    @extend .framed-photo;
+    background: #fff;
+    padding: 0;
+    margin-bottom: 2em;
+  }
+
+  p {
+    margin-bottom: 1em;
+  }
+
+}
+
 // Wedding Party
 .party-people {
   $spacing: 2em;
@@ -248,15 +300,17 @@ body.events .event {
     margin: $spacing 0;
     text-align: center;
 
+    img {
+        border: 1px solid $brown;
+        border-radius: 5%;
+        width: 220px;
+    }
+
     @media (min-width: $bp-tablet) {
       text-align: left;
 
       img {
-        @extent .framed-photo;
         background: $white;
-        padding: 1em;
-        border: 1px solid $brown;
-        //border-radius: 50%;
         float: right;
       }
 

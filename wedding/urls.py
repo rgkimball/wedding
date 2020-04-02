@@ -21,6 +21,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from wedding import views
 
 
+handler404 = views.page_not_found
+
 urlpatterns = [
     path(r'admin/', admin.site.urls),
     path(r'api/', views.API.as_view()),

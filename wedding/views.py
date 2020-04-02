@@ -84,6 +84,16 @@ class EventsView(TemplateView):
         })
 
 
+def page_not_found(request, exception):
+    template_name = 'basic.html'
+
+    return render(
+        request,
+        template_name,
+        context={'message': 'Sorry, we can\'t find that page! Try using one of the links above instead.'}
+    )
+
+
 class API(TemplateView):
     template_name = 'basic.html'
 
