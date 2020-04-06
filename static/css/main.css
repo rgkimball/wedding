@@ -7836,6 +7836,10 @@ footer span {
   width: 100%;
 }
 
+body.homepage #nav-button {
+  display: none;
+}
+
 body.homepage h1 + h4 {
   margin-bottom: 0.5em;
 }
@@ -7866,7 +7870,14 @@ body:not(.homepage) nav:not(.is-active) {
   display: none;
 }
 
+body:not(.homepage) nav:hover {
+  display: block;
+}
+
 @media screen and (min-width: 769px) {
+  body:not(.homepage) nav:hover {
+    display: flex;
+  }
   body:not(.homepage) nav a.button {
     border-bottom-color: #6D4C3D;
   }

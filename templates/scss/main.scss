@@ -243,6 +243,10 @@ footer {
 // Main page
 body.homepage {
 
+  #nav-button {
+    display: none;
+  }
+
   // Header & date/location
   h1 + h4 {
     margin-bottom: 0.5em;
@@ -279,7 +283,15 @@ body:not(.homepage) {
       display: none;
     }
 
+    &:hover {
+      display: block;
+    }
+
     @media screen and (min-width: $bp-tablet) {
+
+      &:hover {
+        display: flex;
+      }
       a.button {
         border-bottom-color: $brown;
 
