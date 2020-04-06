@@ -237,7 +237,7 @@ class API(TemplateView):
             msg = '<p>We couldn\'t find your name in our address book! Please try again, and don\'t forget to ' \
                   'include any punctuation from your card. </p> '
             msg += render(request, '_form.html').content.decode('utf-8')
-            msg += "<p><img class=\"framed-photo centered\" src=\"/static/img/savedateenv.JPG\" /></p>"
+            msg += "<p><img class=\"framed-photo centered\" src=\"/static/img/savedateenv.jpg\" /></p>"
             msg += "If you're unable to get in, <a href=\"mailto:hello@kathrynandrob.com\">let us know</a> and we " \
                    "will fix it!</a> "
 
