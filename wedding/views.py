@@ -209,6 +209,12 @@ class API(TemplateView):
                 pass
 
         if party is not None:
+            # Log their visit
+            if party.first_accessed is None:
+                party.first_accessed = dt.now()
+            party.last_accessed = dt.now()
+            party.save()
+
             if party.email_verfied is False:
                 # See if we can get some updated contact info from the guest.
                 if len(party.guest_emails) == 0:
