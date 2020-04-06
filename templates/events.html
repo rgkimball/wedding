@@ -4,7 +4,7 @@
 
 {% block pagecontent %}
     <div class="framed-photo">
-        <img src="/static/img/arabelle.jpeg" alt="The Arabelle at Vail Square" />
+        <img src="{% static 'img/arabelle.jpeg' %}" alt="The Arabelle at Vail Square" />
     </div>
 
     {% for event in events %}
@@ -41,6 +41,5 @@
         </div>
 
     {% endfor %}
-
 {% endblock %}
 

@@ -18,15 +18,20 @@ body, button, input, select, textarea {
   color: $black;
   font-family: $text;
 }
+
 html {
+  font-size: 10px;
   overflow-y: unset;
+
+  @media (min-width: $bp-mobile) {
+    font-size: 16px;
+  }
 }
 
 body {
   background: $white;
   background-size: cover;
   font-size: 1.2em;
-  font-size: clamp(16px, 4vw, 22px); // more modern browsers only
   min-height: 100vh;
   top: 0;
   left: 0;
@@ -57,14 +62,27 @@ body {
   }
 }
 
+label {
+  color: $green;
+}
+
+// Global elements
 div.container nav,
 nav {
+  height: 0;
+  font-size: 2em;
+
+  &.is-active {
+    height: auto;
+  }
+
   a.button {
     background: transparent;
     color: $brown;
     font-family: $stamp;
+    font-size: 1em;
     font-weight: normal;
-    transition: color 0.5s, border-color 0.5s;
+    transition: color 0.5s, border-color 0.5s, height 0.3s;
     text-decoration: none;
 
     &:hover {
@@ -72,6 +90,59 @@ nav {
       color: $c;
       border-color: $c;
     }
+  }
+
+  @media (min-width: $bp-tablet) {
+    font-size: 1em;
+  }
+}
+#nav-button {
+    $color: $brown;
+    $hovcolor: $color-links;
+    $w: 5px;
+
+    margin: 1em;
+    position: absolute;
+    right: 0;
+    top: $w;
+    width: $w * 8;
+
+    div,
+    &:before,
+    &:after {
+      background-color: $color;
+      border-radius: 3px;
+      content: '';
+      display: block;
+      height: $w;
+      margin: $w*1.4 0;
+      transition: all .3s ease-in-out;
+    }
+
+  &:hover {
+    cursor: pointer;
+
+    div, &:before, &:after {
+      background-color: $hovcolor;
+    }
+  }
+
+  &.is-active,
+  &:active {
+
+    &:before {
+      transform: translateY(12px) rotate(135deg);
+    }
+    &:after {
+      transform: translateY(-12px) rotate(-135deg);
+    }
+    div {
+      transform: scale(0);
+    }
+  }
+
+  @media (min-width: $bp-tablet) {
+    display: none;
   }
 }
 
@@ -142,8 +213,7 @@ footer {
     @extend .no-highlight;
 
     color: $yellow;
-    font-size: 2.4vw;
-    font-size: clamp(8px, 2.4vw, 34px);  // more modern browsers only
+    font-size: 1em;
     position: absolute;
     bottom: 2%;
     left: 20%;
@@ -151,22 +221,27 @@ footer {
   }
 }
 
+.special-note {
+  color: $green;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.secret-code {
+  background: rgba($yellow, 0.5);
+  border: 1px solid grey;
+  border-radius: 1em;
+  color: $green;
+  font-family: monospace;
+  margin: 1em 0;
+  padding: 1em;
+  text-align: center;
+  width: 100%;
+}
+
 //
 // Page-specific styles
 //
-
-// Nav highlighter
-$pages: 'photos', 'events', 'travel', 'events', 'party', 'registry';
-
-@each $page in $pages {
-
-  body.#{$page} [data-page="#{$page}"] {
-    border-bottom: 0px !important;
-    border-top: 0px !important;
-    color: darken($yellow, 30%);
-  }
-
-}
 
 // Main page
 body.homepage {
@@ -181,49 +256,56 @@ body.homepage {
     font-size: 0.7em;
   }
 
-  nav .button[data-page="homepage"] {
-    display: none !important;
+  nav.columns {
+    display: block;
+
+    .button[data-page="homepage"] {
+      display: none !important;
+    }
   }
 
 }
 
 body:not(.homepage) {
   nav {
-    height: auto;
-    margin: 0 auto 1em;
-    text-align: center;
-
-    &:not(.active) {
-      display: none;
-      height: 0;
-    }
-
     .button {
-      border: 0;
-      margin-right: 1em;
-
-      &:not(.active) {
-        border-bottom: 1px solid $brown;
-        border-top: 1px solid $brown;
-        border-radius: 2px;
-      }
+      border: 1px solid $brown;
+      border-bottom-color: transparent;
+      border-left-width: 0;
+      border-right-width: 0;
+      border-radius: 0;
+      color: $brown;
+      padding-bottom: 2em;
     }
 
+    &:not(.is-active) {
+      display: none;
+    }
+  }
 
   @media screen and (min-width: $bp-tablet) {
-    border-spacing: .5em;
-    border-top-color: $brown;
-    display: table;
-    table-layout: fixed;
-    width: 100%;
+    a.button {
+      border-bottom-color: $brown;
 
-      a.button {
-        background: transparent;
-        color: $brown;
-        display: table-cell;
-        padding-left: 0;
-        padding-right: 0;
+      &:not(:last-child) {
+        margin-right: 1em;
       }
+    }
+
+    &:not(.is-active) {
+      display: block;
+    }
+  }
+}
+
+// Nav highlighter
+$pages: 'photos', 'events', 'travel', 'events', 'party', 'registry';
+@each $page in $pages {
+  body.#{$page} a.button[data-page="#{$page}"] {
+    color: darken($yellow, 30%);
+    @media screen and (min-width: $bp-tablet) {
+      border-bottom: 0 !important;
+      border-top: 0 !important;
     }
   }
 }
@@ -290,6 +372,16 @@ body.travel {
     margin-bottom: 1em;
   }
 
+  div.hotel {
+    // Reduce spacing within a block of contact info
+    > * {
+      margin-bottom: 0;
+    }
+
+    // ...but bring it back for the main el
+    margin-bottom: 2em;
+  }
+
 }
 
 // Wedding Party
@@ -331,6 +423,37 @@ body.travel {
       font-family: $stamp;
       font-weight: normal;
       margin-bottom: $spacing;
+    }
+  }
+}
+
+body.registry {
+
+  .columns {
+    a.column {
+      text-align: center;
+
+      img {
+        filter: brightness(70%);
+        height: auto;
+        width: 80%;
+        transition: filter 500ms;
+      }
+
+      &:hover {
+        img {
+          filter: brightness(150%);
+        }
+      }
+    }
+  }
+
+}
+
+body.misc {
+  .container {
+    p {
+      margin-bottom: 2em;
     }
   }
 }

@@ -119,3 +119,4 @@ GitHub.sublime-settings
 # Wedding Website
 .venv/*
 .*.settings.json
+failed_lookups.txt

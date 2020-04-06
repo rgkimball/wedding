@@ -4,18 +4,35 @@
 {% block title %}Travel Information{% endblock %}
 
 {% block pagecontent %}
-    <div class="map">
-        <iframe src="https://snazzymaps.com/embed/229488" width="100%" height="400px" style="border:none;"></iframe>
+    <div class="framed-photo">
+        <img src="{% static 'img/i70.jpg' %}" alt="The Arabelle at Vail Square" />
     </div>
 
     <h3>Travel to Vail</h3>
-    <p>The nearest large airport is Denver International Airport, from which it is <a href="https://www.google.com/maps/dir/Denver+International+Airport+(DEN),+8500+Pe%C3%B1a+Blvd,+Denver,+CO+80249/Vail+Square+Ice+Rink,+Lionshead+Place,+Vail,+CO/@39.6790888,-105.8102672,10z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x876c7f2a98ff44ff:0x49583bb435b59c6a!2m2!1d-104.6737376!2d39.8560963!1m5!1m1!1s0x876a7060c31b3d6f:0x839c537a34193e9e!2m2!1d-106.3888467!2d39.6435988!3e0" target="_blank">about a 2 hour drive</a> to get to Vail.</p>
-    <p>If you don't want to rent a car you may use <a href="https://www.epicmountainexpress.com/vail-shuttles" target="_blank">the Epic Mountain Shuttle (operated by Vail Resorts)</a> instead. Once you get to Vail there are several free shuttles and buses to help you navigate Vail Village and Lionshead Village.</p>
+    <p>The nearest large airport is Denver International Airport (DIA), from which it is <a href="https://www.google.com/maps/dir/Denver+International+Airport+(DEN),+8500+Pe%C3%B1a+Blvd,+Denver,+CO+80249/Vail+Square+Ice+Rink,+Lionshead+Place,+Vail,+CO/@39.6790888,-105.8102672,10z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x876c7f2a98ff44ff:0x49583bb435b59c6a!2m2!1d-104.6737376!2d39.8560963!1m5!1m1!1s0x876a7060c31b3d6f:0x839c537a34193e9e!2m2!1d-106.3888467!2d39.6435988!3e0" target="_blank">about a 2 hour drive</a> to get to Vail. Denver is a ~2 hour flight from Los Angeles or San Francisco, and about 4 hours west of the East Coast. Eagle Country Regional Airport (EGE) is a short 30 minute drive from Vail, though few commercial flights are available there. Once you arrive in Vail, a car will largely be unnecessary, so a van or shuttle from the airport may be a good alternative to renting a car.</p>
+    <p>If you decide not to rent a car you may use <a href="https://www.epicmountainexpress.com/vail-shuttles" target="_blank">the Epic Mountain Shuttle (operated by Vail Resorts)</a> to travel from DIA to Vail. Once you get to Vail there are several free shuttles and buses to help you navigate Vail Village and Lionshead Village, and our ceremony and reception are walkable from numerous hotels in both Lionshead and Vail Village.</p>
 
+    <div class="map">
+        <iframe src="https://snazzymaps.com/embed/229488" width="100%" height="400px" style="border:none;"></iframe>
+    </div>
     <h3>Hotels</h3>
-    <h5>Nearby Alternatives</h5>
+    <p>Vail is filled with great hotels and numerous AirBnB's as well. For convenience, we recommend you inquire about availability at The Arabelle, which is where our reception will take place.</p>
+    <div class="hotel has-text-centered">
+        <h5>The Arabelle</h5>
+        <p>675 Lionshead Pl</p>
+        <p>Vail, CO 81657</p>
+        <a href="tel:18886888055">(888) 688-8055</a>
+    </div>
+    <div class="hotel has-text-centered">
+        <h5>The Arabelle</h5>
+        <p>675 Lionshead Pl</p>
+        <p>Vail, CO 81657</p>
+        <a href="tel:18886888055">(888) 688-8055</a>
+    </div>
+    <h4>Nearby Alternatives</h4>
+    <p>If you would prefer to stay outside of Vail, we unfortunately do not have any room blocks or hotel codes, but we recommend looking at Avon, Beaver Creek and Edwards, all of which are just a short drive West from Vail along I-70. </p>
     <h3>Activities</h3>
     <img src="/static/img/vail_hike.JPG" style="width: 25%;" class="framed-photo is-pulled-right" />
-    <p>We love to hike and you should too.</p>
+    <p>Hikes, day trips, etc.</p>
 
 {% endblock %}

@@ -34,7 +34,7 @@ class DictObj:
             return getattr(self, item)
         else:
             # Using a string value here since we may want some keys to return None
-            if default is not 'Unspecified':
+            if default != 'Unspecified':
                 return default
 
 
@@ -64,18 +64,28 @@ CONFIG = DictObj(cfg_contents)
 SECRET_KEY = CONFIG.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if ENV is 'dev' else False
+DEBUG = True if ENV == 'dev' else False
+GUEST_SESSION_COOKIE_NAME = 'user_id'
 
-if ENV is 'dev':
+if ENV == 'dev':
     ALLOWED_HOSTS = []
-elif ENV is 'test':
-    ALLOWED_HOSTS = ['rgk.pythonanywhere.com', 'wedding.rkstage.com', '127.0.0.1', 'localhost']
-elif ENV is 'prod':
-    ALLOWED_HOSTS = ['kathrynandrob.com', 'www.kathrynandrob.com']
+    SESSION_COOKIE_AGE = 24 * 60 * 60  # two hours
+    SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+    SESSION_COOKIE_DOMAIN = ''
 
+elif ENV == 'test':
+    ALLOWED_HOSTS = ['rgk.pythonanywhere.com', 'wedding.rkstage.com', '127.0.0.1', 'localhost']
+    SESSION_COOKIE_AGE = 365 * 24 * 60 * 60  # one year
+    SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+    SESSION_COOKIE_DOMAIN = ALLOWED_HOSTS[0]
+
+elif ENV == 'prod':
+    ALLOWED_HOSTS = ['kathrynandrob.com', 'www.kathrynandrob.com']
+    SESSION_COOKIE_AGE = 365 * 24 * 60 * 60  # one year
+    SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+    SESSION_COOKIE_DOMAIN = ALLOWED_HOSTS[0]
 
 # Application definition
-
 INSTALLED_APPS = [
     'wedding.apps.WeddingConfig',
     'django.contrib.admin',
@@ -83,7 +93,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sitemaps',
     'django.contrib.staticfiles',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -178,3 +190,5 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, 'static/'),
 )
+
+IMPORT_EXPORT_USE_TRANSACTIONS = True

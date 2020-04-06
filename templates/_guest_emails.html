@@ -1,0 +1,18 @@
+<div class="email-verify">
+    <form action="/api">
+        <input type="hidden" name="task" value="update_emails" />
+    {% for guest in guests %}
+        <p class="columns has-icons-left">
+            <label for="email_{{ guest.first_name }}" class="column">{{ guest.first_name }}'s Email:</label>
+            <input type="email" name="email_{{ guest.first_name }}" value="{{ guest.email }}" class="input column is-three-quarters is-large" />
+        </p>
+    {% endfor %}
+    <div class="field">
+      <p class="control has-text-centered">
+        <button class="button is-success is-large">
+          Save Changes
+        </button>
+      </p>
+    </div>
+    </form>
+</div>

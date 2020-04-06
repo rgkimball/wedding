@@ -3,7 +3,8 @@
 """
 
 from django.db import models
-from .utils import _random_uuid, MEALS
+from django.contrib.sitemaps import Sitemap
+from .utils import _random_uuid, MEALS, objdict
 
 
 class Event(models.Model):
@@ -32,15 +33,13 @@ class Party(models.Model):
     """
     name = models.TextField()
     category = models.CharField(max_length=20, null=True, blank=True)
-    save_the_date_sent = models.DateTimeField(null=True, blank=True, default=None)
-    save_the_date_opened = models.DateTimeField(null=True, blank=True, default=None)
+    first_accessed = models.DateTimeField(null=True, blank=True, default=None)
+    last_accessed = models.DateTimeField(null=True, blank=True, default=None)
     invitation_id = models.CharField(max_length=32, db_index=True, default=_random_uuid, unique=True)
-    invitation_sent = models.DateTimeField(null=True, blank=True, default=None)
-    invitation_opened = models.DateTimeField(null=True, blank=True, default=None)
     is_invited = models.BooleanField(default=False)
     rehearsal_dinner = models.BooleanField(default=False)
-    wedding_party = models.BooleanField(default=False)
     is_attending = models.NullBooleanField(default=None)
+    email_verfied = models.NullBooleanField(default=False)
     comments = models.TextField(null=True, blank=True)
 
     def __str__(self):
@@ -62,6 +61,14 @@ class Party(models.Model):
     def guest_emails(self):
         return list(filter(None, self.guest_set.values_list('email', flat=True)))
 
+    @property
+    def guest_name_and_email(self):
+        res = list(filter(None, self.guest_set.values('first_name', 'last_name', 'email')))
+        return [objdict(v) for v in res]
+
+    def get_by_invitation(self, invitation_id):
+        return self.objects.get(invitation_id=invitation_id)
+
 
 class Guest(models.Model):
     """
@@ -72,6 +79,7 @@ class Guest(models.Model):
     last_name = models.TextField(null=True, blank=True)
     email = models.TextField(null=True, blank=True)
     is_attending = models.NullBooleanField(default=None)
+    wedding_party = models.BooleanField(default=False)
     meal = models.CharField(max_length=20, choices=MEALS, null=True, blank=True)
     is_child = models.BooleanField(default=False)
 
@@ -86,3 +94,14 @@ class Guest(models.Model):
 
     def __str__(self):
         return 'Guest: {} {}'.format(self.first_name, self.last_name)
+
+
+class PageSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 1
+
+    def items(self):
+        return
+
+    def lastmod(self):
+        return

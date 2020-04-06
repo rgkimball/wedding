@@ -9,14 +9,13 @@
             $body: document.querySelector('body'),
             $button: document.querySelector('h1.stamp .amp'),
             $nav: document.querySelector('nav'),
+            $navTrigger: document.querySelector('#nav-button'),
         };
 
         return {
             init: function() {
 
                 elements.$button.onclick = function($this) {
-                    console.log($this)
-
                     if (!elements.$body.classList.contains('homepage')) {
                         // Toggler
                         if (!elements.$nav.classList.contains('active')) {
@@ -27,6 +26,18 @@
                     }
 
                 };
+
+                elements.$navTrigger.onclick = function($this) {
+                    if (elements.$nav.classList.contains('is-active')) {
+                        // Toggle off
+                        elements.$navTrigger.classList.remove('is-active');
+                        elements.$nav.classList.remove('is-active');
+                    } else {
+                        // Toggle on
+                        elements.$navTrigger.classList.add('is-active');
+                        elements.$nav.classList.add('is-active');
+                    }
+                }
 
             }
         };
@@ -130,6 +141,31 @@
 
 
     });
+
+    /**
+     * getJSON()
+     *
+     * Use the callback function to get a return.
+     *
+     * @param url string, valid URI
+     * @param callback function
+     */
+    window.getJSON = function(url, callback) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'json';
+
+        xhr.onload = function() {
+            let status = xhr.status;
+            if (status === 200) {
+                callback(xhr.response);
+            } else {
+                throw Error("JSON Request of " + url + " failed. Status: " + status)
+            }
+        };
+        xhr.send();
+        return xhr.response;
+    };
 
     // Call each
     window.onload = function() {
