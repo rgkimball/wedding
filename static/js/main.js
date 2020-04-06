@@ -28,8 +28,6 @@
                 };
 
                 elements.$navTrigger.onclick = function($this) {
-                    alert('clicked')
-
                     if (elements.$nav.classList.contains('is-active')) {
                         // Toggle off
                         elements.$navTrigger.classList.remove('is-active');

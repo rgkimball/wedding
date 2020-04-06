@@ -7716,23 +7716,27 @@ nav {
   transition: all .3s ease-in-out;
 }
 
-#nav-button:hover {
+#nav-button.is-active, #nav-button:hover {
   cursor: pointer;
 }
 
-#nav-button:hover div, #nav-button:hover:before, #nav-button:hover:after {
+#nav-button.is-active div, #nav-button.is-active:before, #nav-button.is-active:after, #nav-button:hover div, #nav-button:hover:before, #nav-button:hover:after {
   background-color: #e1af33;
 }
 
-#nav-button.is-active:before, #nav-button:active:before {
+#nav-button.is-active + nav, #nav-button:hover + nav {
+  display: block;
+}
+
+#nav-button.is-active:before, #nav-button:hover:before {
   transform: translateY(12px) rotate(135deg);
 }
 
-#nav-button.is-active:after, #nav-button:active:after {
+#nav-button.is-active:after, #nav-button:hover:after {
   transform: translateY(-12px) rotate(-135deg);
 }
 
-#nav-button.is-active div, #nav-button:active div {
+#nav-button.is-active div, #nav-button:hover div {
   transform: scale(0);
 }
 

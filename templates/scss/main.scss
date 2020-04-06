@@ -115,16 +115,17 @@ nav {
       transition: all .3s ease-in-out;
     }
 
+  &.is-active,
   &:hover {
     cursor: pointer;
 
     div, &:before, &:after {
       background-color: $hovcolor;
     }
-  }
 
-  &.is-active,
-  &:active {
+    + nav {
+      display: block;
+    }
 
     &:before {
       transform: translateY(12px) rotate(135deg);
