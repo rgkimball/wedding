@@ -202,7 +202,7 @@ class API(TemplateView):
             try:
                 party = Party.objects.get(name=request.GET['party_code'])
                 msg = f'<p>Thanks for verifying! Now that we know you\'re on the list, we\'ve tailored the site ' \
-                      f'specifically for you, check it out! Also, from now on you can also use your secret code to ' \
+                      f'specifically for you! Also, from now on you can also use your secret code to ' \
                       f'sign in instead. The code to manage your party is below: <div class="secret-code">' \
                       f'{party.invitation_id}</div></p> '
             except ObjectDoesNotExist:

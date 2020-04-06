@@ -7703,7 +7703,7 @@ nav {
   right: 0;
   top: 5px;
   width: 40px;
-  z-index: 10;
+  z-index: 1000;
 }
 
 #nav-button div, #nav-button:before, #nav-button:after {

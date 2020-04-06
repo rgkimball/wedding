@@ -57,10 +57,10 @@ class PartyAdmin(ImportExportModelAdmin):
     list_display = (
         'name',
         'category',
+        'is_invited',
+        'invitation_id',
         'first_accessed',
         'last_accessed',
-        'invitation_id',
-        'is_invited',
         'rehearsal_dinner',
         'is_attending',
         'comments',

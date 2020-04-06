@@ -101,7 +101,7 @@ nav {
     right: 0;
     top: $w;
     width: $w * 8;
-    z-index: 10;
+    z-index: 1000;
 
     div,
     &:before,
