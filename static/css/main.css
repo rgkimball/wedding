@@ -8011,6 +8011,15 @@ body.travel div.hotel > * {
   margin-bottom: 0;
 }
 
+body.travel div.hotel p.is-bold {
+  color: #0f610f;
+  font-weight: bold;
+}
+
+body.travel div.hotel em, body.travel div.hotel footer span, footer body.travel div.hotel span {
+  font-family: "Lato", sans-serif;
+}
+
 .party-people .party-person {
   display: flow-root;
   margin: 2em 0;

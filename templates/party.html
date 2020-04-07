@@ -7,7 +7,7 @@
     <div class="party-people">
         {% for person in people %}
         <div class="party-person">
-            {% if person.photo is not None %}
+            {% if person.photo %}
             <img src="{{ person.photo }}" alt="{{ person.name }}, {{ person.title }}" title="{{ person.name }}, {{ person.title }}" />
             {%  endif %}
             <h2>{{ person.name }}</h2>

@@ -389,6 +389,15 @@ body.travel {
 
     // ...but bring it back for the main el
     margin-bottom: 2em;
+
+    p.is-bold {
+      color: $green;
+      font-weight: bold;
+    }
+
+    em {
+      font-family: $text;
+    }
   }
 
 }

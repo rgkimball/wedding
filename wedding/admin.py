@@ -151,6 +151,7 @@ class WeddingPartyAdmin(ImportExportModelAdmin):
         'name',
         'title',
         'photo',
+        'id',
     ]
 
     list_filter = [
