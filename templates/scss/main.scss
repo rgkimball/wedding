@@ -421,6 +421,11 @@ body.travel {
       }
     }
 
+    p {
+      margin-bottom: 1em;
+      text-align: left;
+    }
+
     &:not(:last-child) {
       border-bottom: 1px solid $brown;
     }

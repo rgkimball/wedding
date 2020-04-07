@@ -11,9 +11,17 @@ from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist
 
-from .models import Event, Party
-from .settings import ENV, BASE_DIR, CONFIG, GUEST_SESSION_COOKIE_NAME, SESSION_COOKIE_AGE, SESSION_COOKIE_DOMAIN
-from .utils import touch, TZ, set_cookie, get_client_ip
+from .models import Event, Party, WeddingParty
+from .settings import BASE_DIR
+from .settings import CONFIG
+from .settings import GUEST_SESSION_COOKIE_NAME
+from .settings import SESSION_COOKIE_AGE
+from .settings import SESSION_COOKIE_DOMAIN
+from .settings import STATIC_URL
+from .utils import touch
+from .utils import TZ
+from .utils import set_cookie
+from .utils import get_client_ip
 
 
 class MainView(TemplateView):
@@ -103,8 +111,17 @@ class WeddingPartyView(TemplateView):
 
     def get(self, request, *args, **kwargs):
 
+        party_people = WeddingParty.objects.all().order_by('id')
+
+        for person in party_people:
+            person.title = person.get_title_display()
+
+            if person.photo is not None:
+                person.photo = os.path.join(STATIC_URL, 'img/party', person.photo)
+
         return render(request, self.template_name, context={
             'safe_title': 'party',
+            'people': party_people,
         })
 
 

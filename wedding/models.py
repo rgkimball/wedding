@@ -4,6 +4,7 @@
 
 from django.db import models
 from django.contrib.sitemaps import Sitemap
+from django.utils.translation import gettext_lazy as _
 from .utils import _random_uuid, MEALS, objdict
 
 
@@ -94,6 +95,28 @@ class Guest(models.Model):
 
     def __str__(self):
         return 'Guest: {} {}'.format(self.first_name, self.last_name)
+
+
+class WeddingParty(models.Model):
+    """
+    Entry for the wedding party page.
+    """
+    class PartyTypes(models.TextChoices):
+        MOH = 'MH', _('Maid of Honor')
+        BM = 'BM', _('Best Man')
+        GROOMSMAN = 'G', _('Groomsman')
+        BRIDESMAID = 'B', _('Bridesmaid')
+        FLOWER_GIRL = 'FG', _('Flower Girl')
+        RING_BEARER = 'RB', _('Ring Bearer')
+
+    name = models.CharField(max_length=150)
+    title = models.CharField(
+        max_length=2,
+        choices=PartyTypes.choices,
+        default=PartyTypes.BRIDESMAID,
+    )
+    photo = models.CharField(max_length=200, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
 
 
 class PageSitemap(Sitemap):

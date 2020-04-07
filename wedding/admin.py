@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
-from .models import Guest, Party, Event
+from .models import Guest, Party, Event, WeddingParty
 
 
 @admin.register(Event)
@@ -143,3 +143,16 @@ class GuestAdmin(ImportExportModelAdmin):
     )
 
     resource_class = GuestResource
+
+
+@admin.register(WeddingParty)
+class WeddingPartyAdmin(ImportExportModelAdmin):
+    list_display = [
+        'name',
+        'title',
+        'photo',
+    ]
+
+    list_filter = [
+        'title',
+    ]

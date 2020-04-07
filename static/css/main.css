@@ -8039,6 +8039,11 @@ body.travel div.hotel > * {
   }
 }
 
+.party-people .party-person p {
+  margin-bottom: 1em;
+  text-align: left;
+}
+
 .party-people .party-person:not(:last-child) {
   border-bottom: 1px solid #6D4C3D;
 }
