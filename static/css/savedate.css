@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css?family=Tangerine&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Amiri&display=swap");
+div.container .save-the-date.modal {
+  margin: 0 auto;
+  padding: 0.25em;
+}
+
+div.container .save-the-date.modal.one .modal-content {
+  background: url("/static/img/std_cover.jpg") center center no-repeat #0f610f;
+  background-size: auto 100%;
+  background-size: cover;
+  overflow: hidden;
+  z-index: 2;
+}
+
+div.container .save-the-date.modal.one .modal-content .gold-script {
+  font-size: 10em;
+  left: -6px;
+  margin: 0.3em -5px;
+  position: relative;
+  top: -42px;
+  transform: rotate(-9deg);
+  white-space: nowrap;
+}
+
+div.container .save-the-date.modal.one .modal-content .bottom {
+  color: #efefef;
+  font-size: 1.7em;
+  position: relative;
+  text-shadow: 2px 2px 2px #12111e;
+}
+
+div.container .save-the-date.modal.two .modal-content {
+  background: #efefef;
+  z-index: 1;
+}
+
+div.container .save-the-date.modal, div.container .save-the-date.modal p, div.container .save-the-date.modal div {
+  color: #efefef;
+}
+
+div.container .centered p {
+  margin-bottom: 2em;
+}
+
+div.container .centered nav a.button {
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 1em auto;
+  width: 100%;
+}
+
+.gold-script {
+  background: -webkit-linear-gradient(#ae8625, #f7ef8a, #d2ac47, #edc967);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

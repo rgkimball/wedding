@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metatags %}<meta name="canonical" content="https://kathrynandrob.com/party" />{% endblock %}
+{% block title %}Wedding Party{% endblock %}
+
+{% block pagecontent %}
+    <div class="party-people">
+        {% for person in people %}
+        <div class="party-person">
+            {% if person.photo %}
+            <img src="{{ person.photo }}" alt="{{ person.name }}, {{ person.title }}" title="{{ person.name }}, {{ person.title }}" />
+            {%  endif %}
+            <h2>{{ person.name }}</h2>
+            <h5>{{ person.title }}</h5>
+            <p>{{ person.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

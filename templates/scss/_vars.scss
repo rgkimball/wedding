@@ -1,0 +1,35 @@
+
+$black: #12111e;  // not actually black & white...
+$white: #efefef;
+$green: #0f610f;
+$blue: #556F77;
+$brown: #6D4C3D;
+$tan: #DCC9B6;
+$red: #EB9486;
+$yellow: #F3DE8A;
+$purple: #7E7F9A;
+
+$color-links: lighten(goldenrod, 5%);
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Tangerine&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Amiri&display=swap');
+
+$script: 'Tangerine', cursive;
+$handwritten: 'Amatic SC', cursive;
+$text: 'Lato', sans-serif;
+$stamp: 'Amiri', $text;
+
+$base-font-size: 1em;
+$heading-scale: 0.9;
+
+// Breakpoints
+$bp-mini: 400px;
+$bp-mobile: 768px;
+$bp-tablet: 769px;
+$bp-desktop: 960px;
+$bp-widescreen: 1216px;
+$bp-fullhd: 1408px;
+

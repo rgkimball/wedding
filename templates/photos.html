@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metatags %}<meta name="canonical" content="https://kathrynandrob.com/photos" />{% endblock %}
+{% block title %}Gallery{% endblock %}
+
+{% block pagecontent %}
+    <div class="photos grid">
+    {% for url in images %}
+        <div class="grid-item"><img src="/static/img/gallery/{{ url }}" alt="" /></div>
+    {%  endfor %}
+    </div>
+{% endblock %}
+
+{%  block footerscripts %}
+    <script type="module" src="{% static 'js/photos.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'css/savedate.css' %}" type="text/css" />
+{% endblock %}
+
+{% block title %}My Page{% endblock %}
+
+{% block beforecontainer %}
+<div class="modal-background"></div>
+{% endblock %}
+{% block pagecontent %}
+    <div class="save-the-date one modal modal-fx-3dSign">
+        <div class="modal-content">
+            <h1 class="gold-script centered">Save the Date</h1>
+            <h3 class="em centered bottom">Kathryn & Rob &middot; <strong>September 18, 2020</strong> &middot; Vail, CO</h3>
+        </div>
+    </div>
+{#    <div class="save-the-date two modal modal-fx-3dSign">#}
+{#        <div class="modal-content">#}
+{#            <p>Give us your email.</p>#}
+{#            <form class="columns">#}
+{#                <input type="email" id="email" class="input column" placeholder="email" tabindex="1" />#}
+{#                <button class="button is-primary column">Send!</button>#}
+{#            </form>#}
+{#        </div>#}
+        {#        <button class="modal-close is-large" aria-label="close"></button>#}
+{#    </div>#}
+{% endblock %}

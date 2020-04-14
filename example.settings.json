@@ -1,0 +1,18 @@
+{
+  "_file_comment_": "This example illustrates the common values that should be defined by each environment's config file. You should copy and rename this file as .dev.settings.json (with the leading period) for your local environment to test values. When deploying, create additional test and prod files - all of these are ignored by git. You should also delete this unused entry upon deploying.",
+
+  "DB": {
+    "ENGINE": "mysql",
+    "HOST": "example-site.com",
+    "NAME": "user$mydb",
+    "USER": "root",
+    "PASSWORD": "root",
+  },
+
+  "SECRET_KEY": "my_django_salt",
+  "API_KEY": "backdoor",
+
+  "TIMEZONE": "America/Denver",
+  "STATIC_ROOT": "",
+  "STATIC_URL": "/static/"
+}

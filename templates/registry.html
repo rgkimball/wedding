@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metatags %}<meta name="canonical" content="https://kathrynandrob.com/registry" />{% endblock %}
+{% block title %}Registry{% endblock %}
+
+{% block pagecontent %}
+    <p>We are registered at:</p>
+    <div class="columns">
+        <a class="column"  href="https://www.crateandbarrel.com/gift-registry/kathryn-bodine-and-robert-kimball/r6093783" target="_blank">
+            <img src="{% static 'img/logo-cb.png' %}" alt="Kathryn Bodine & Robert Kimball Wedding Registry - Williams Sonoma" />
+        </a>
+        <a class="column" href="https://www.williams-sonoma.com/registry/jxlc5jdwnj/registry-list.html" target="_blank">
+            <img src="{% static 'img/logo-ws.png' %}" alt="Kathryn Bodine & Robert Kimball Wedding Registry - Williams Sonoma" />
+        </a>
+    </div>
+{% endblock %}
+
+{%  block footerscripts %}
+    <script type="module" src="{% static 'js/photos.js' %}"></script>
+{% endblock %}

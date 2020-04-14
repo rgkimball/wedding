@@ -1,0 +1,77 @@
+@charset "utf-8";
+@import '_vars';
+
+div.container {
+
+  .save-the-date.modal {
+    margin: 0 auto;
+    padding: 0.25em;
+
+    &.one {
+      .modal-content {
+        background: url('/static/img/std_cover.jpg') center center no-repeat $green;
+        background-size: auto 100%;  // leaving both attributes in means it will render approximately the right size before the img fully downloads
+        background-size: cover;
+        overflow: hidden;
+        z-index: 2; // overlap second box
+
+        .gold-script {
+          font-size: 10em;
+          left: -6px;
+          margin: 0.3em -5px;
+          position: relative;
+          top: -42px;
+          transform: rotate(-9deg);
+          white-space: nowrap;
+        }
+
+        .bottom {
+          color: $white;
+          font-size: 1.7em;
+          position: relative;
+          text-shadow: 2px 2px 2px $black;
+        }
+      }
+    }
+
+    &.two {
+      .modal-content {
+        background: $white;
+        z-index: 1;
+      }
+    }
+
+    &, p, div {
+      color: $white;
+    }
+  }
+
+  .centered {
+
+
+
+    p {
+      margin-bottom: 2em;
+    }
+
+    nav {
+      a.button {
+        display: block;
+        //font-family: $script;
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 1em auto;
+        width: 100%;
+      }
+    }
+
+  }
+
+}
+
+.gold-script {
+  background: -webkit-linear-gradient(#ae8625, #f7ef8a, #d2ac47, #edc967);
+  //background: -webkit-linear-gradient(#f9f295, #e0aa3e, #f7ef8a, #b88a44);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
