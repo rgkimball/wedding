@@ -265,6 +265,25 @@ body.homepage {
     }
   }
 
+  .centered
+  .covid {
+    background: lighten($yellow, 20%);
+    border: 2px solid $brown;
+    margin: 0 0 2em;
+    padding: 1em;
+
+    > p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #6553ff;
+      &:hover {
+        color: darken(#6553ff, 5%);
+      }
+    }
+  }
+
 }
 
 body:not(.homepage) {
@@ -331,37 +350,48 @@ body.dark {
 }
 
 // Events page
-body.events .event {
+body.events {
 
-  h2 {
-    margin: 1em 0 -0.3em;
-  }
+  .event {
 
-  h5 {
-    font-weight: normal;
-    margin-left: 0.75em;
-  }
-
-  table {
-    $lmarg: 1.5em;
-    margin-left: $lmarg;
-    width: calc(100% - #{$lmarg});
-
-    tr, th, td {
-      padding: 0.6em 0.4em 0.6em 0;
+    h2 {
+      margin: 1em 0 -0.3em;
     }
 
-    th {
-      width: 20%;
+    h5 {
+      font-weight: normal;
+      margin-left: 0.75em;
     }
 
-    tr {
-      width: 100%;
+    table {
+      $lmarg: 1.5em;
+      margin-left: $lmarg;
+      width: calc(100% - #{$lmarg});
 
-      &:not(:last-child) {
-        border-bottom: 1px solid $grey;
+      tr, th, td {
+        padding: 0.6em 0.4em 0.6em 0;
+      }
+
+      th {
+        width: 20%;
+      }
+
+      tr {
+        width: 100%;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $grey;
+        }
       }
     }
+  }
+
+  .invitation {
+    @extend .script;
+    @extend .has-text-centered;
+
+    font-size: 2em;
+    margin: 2em 0;
   }
 
 }

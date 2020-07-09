@@ -598,7 +598,7 @@ table th {
   }
 }
 
-.has-text-centered {
+.has-text-centered, body.events .invitation {
   text-align: center !important;
 }
 
@@ -7370,7 +7370,7 @@ strong {
   font-weight: 700;
 }
 
-.script {
+.script, body.events .invitation {
   font-family: "Tangerine", cursive;
 }
 
@@ -7856,6 +7856,29 @@ body.homepage nav.columns .button[data-page="homepage"] {
   display: none !important;
 }
 
+body.homepage .centered
+.covid {
+  background: #fcf8e7;
+  border: 2px solid #6D4C3D;
+  margin: 0 0 2em;
+  padding: 1em;
+}
+
+body.homepage .centered
+.covid > p:last-child {
+  margin-bottom: 0;
+}
+
+body.homepage .centered
+.covid a {
+  color: #6553ff;
+}
+
+body.homepage .centered
+.covid a:hover {
+  color: #4e3aff;
+}
+
 body:not(.homepage) nav .button {
   border: 1px solid #6D4C3D;
   border-bottom-color: transparent;
@@ -7991,6 +8014,11 @@ body.events .event table tr {
 
 body.events .event table tr:not(:last-child) {
   border-bottom: 1px solid #7a7a7a;
+}
+
+body.events .invitation {
+  font-size: 2em;
+  margin: 2em 0;
 }
 
 body.travel .map {
