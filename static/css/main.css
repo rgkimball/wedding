@@ -598,7 +598,7 @@ table th {
   }
 }
 
-.has-text-centered, body.events .invitation {
+.has-text-centered, body.events .invitation, body.events .notice {
   text-align: center !important;
 }
 
@@ -8014,6 +8014,10 @@ body.events .event table tr {
 
 body.events .event table tr:not(:last-child) {
   border-bottom: 1px solid #7a7a7a;
+}
+
+body.events .notice {
+  margin: 2em 0;
 }
 
 body.events .invitation {

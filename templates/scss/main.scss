@@ -385,7 +385,10 @@ body.events {
       }
     }
   }
-
+  .notice {
+    @extend .has-text-centered;
+    margin: 2em 0;
+  }
   .invitation {
     @extend .script;
     @extend .has-text-centered;
