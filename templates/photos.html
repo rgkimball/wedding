@@ -4,6 +4,16 @@
 {% block title %}Gallery{% endblock %}
 
 {% block pagecontent %}
+    <h3>Our 2020 Ceremony</h3>
+    <h5>September 18, 2020, Boulder, CO</h5>
+    <div class="photos grid">
+    {% for url in ceremony_images %}
+        <div class="grid-item"><img src="/static/img/ceremony/{{ url }}" alt="" /></div>
+    {%  endfor %}
+    </div>
+
+    <h3>Engagement Announcement</h3>
+    <h5>October 28, 2019, Central Park, NYC</h5>
     <div class="photos grid">
     {% for url in images %}
         <div class="grid-item"><img src="/static/img/gallery/{{ url }}" alt="" /></div>
