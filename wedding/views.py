@@ -130,12 +130,17 @@ class PhotosView(TemplateView):
 
     def get(self, request, *args, **kwargs):
 
-        gallery_images = os.listdir(os.path.join(os.getcwd(), 'static/img/gallery'))
-        shuffled = [x for x in sample(gallery_images, len(gallery_images))]
+        # Engagement
+        engagement_images = os.listdir(os.path.join(os.getcwd(), 'static/img/gallery'))
+        shuffled_engagement = [x for x in sample(engagement_images, len(engagement_images))]
+
+        ceremony_images = os.listdir(os.path.join(os.getcwd(), 'static/img/ceremony'))
+        shuffled_ceremony = [x for x in sample(ceremony_images, len(ceremony_images))]
 
         return render(request, self.template_name, context={
             'safe_title': 'photos',
-            'images': shuffled,
+            'images': shuffled_engagement,
+            'ceremony_images': shuffled_ceremony,
         })
 
 
