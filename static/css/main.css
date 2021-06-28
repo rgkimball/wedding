@@ -7374,7 +7374,7 @@ strong {
   font-family: "Tangerine", cursive;
 }
 
-.stamp {
+.stamp, body.photos h5, body.photos h6 {
   font-family: "Amiri", "Lato", sans-serif;
 }
 
@@ -7394,11 +7394,11 @@ em, footer span, .em {
   color: #F3DE8A;
 }
 
-.no-highlight::selection, footer span::selection, .framed-photo::selection, body.travel .map::selection, .grid .grid-item::selection, h1.centered.stamp::selection, .no-highlight ::selection, footer span ::selection, .framed-photo ::selection, body.travel .map ::selection, .grid .grid-item ::selection, h1.centered.stamp ::selection {
+.no-highlight::selection, footer span::selection, .framed-photo::selection, body.travel .map::selection, .grid .grid-item::selection, h1.centered.stamp::selection, body.photos h5.centered::selection, body.photos h6.centered::selection, .no-highlight ::selection, footer span ::selection, .framed-photo ::selection, body.travel .map ::selection, .grid .grid-item ::selection, h1.centered.stamp ::selection, body.photos h5.centered ::selection, body.photos h6.centered ::selection {
   background: transparent;
 }
 
-.no-highlight::-moz-selection, footer span::-moz-selection, .framed-photo::-moz-selection, body.travel .map::-moz-selection, .grid .grid-item::-moz-selection, h1.centered.stamp::-moz-selection, .no-highlight ::-moz-selection, footer span ::-moz-selection, .framed-photo ::-moz-selection, body.travel .map ::-moz-selection, .grid .grid-item ::-moz-selection, h1.centered.stamp ::-moz-selection {
+.no-highlight::-moz-selection, footer span::-moz-selection, .framed-photo::-moz-selection, body.travel .map::-moz-selection, .grid .grid-item::-moz-selection, h1.centered.stamp::-moz-selection, body.photos h5.centered::-moz-selection, body.photos h6.centered::-moz-selection, .no-highlight ::-moz-selection, footer span ::-moz-selection, .framed-photo ::-moz-selection, body.travel .map ::-moz-selection, .grid .grid-item ::-moz-selection, h1.centered.stamp ::-moz-selection, body.photos h5.centered ::-moz-selection, body.photos h6.centered ::-moz-selection {
   background: transparent;
 }
 
@@ -7526,10 +7526,7 @@ div.container button.is-success:hover {
 
 div.container p.control.is-fullheight,
 div.container button.is-fullheight {
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
+  margin: 0;
   min-height: 100%;
   transition: background-color 500ms;
 }
@@ -7856,26 +7853,22 @@ body.homepage nav.columns .button[data-page="homepage"] {
   display: none !important;
 }
 
-body.homepage .centered
-.covid {
+body.homepage .centered .covid {
   background: #fcf8e7;
   border: 2px solid #6D4C3D;
   margin: 0 0 2em;
   padding: 1em;
 }
 
-body.homepage .centered
-.covid > p:last-child {
+body.homepage .centered .covid > p:last-child {
   margin-bottom: 0;
 }
 
-body.homepage .centered
-.covid a {
+body.homepage .centered .covid a {
   color: #6553ff;
 }
 
-body.homepage .centered
-.covid a:hover {
+body.homepage .centered .covid a:hover {
   color: #4e3aff;
 }
 
@@ -8097,6 +8090,10 @@ body.travel div.hotel em, body.travel div.hotel footer span, footer body.travel 
   font-family: "Amiri", "Lato", sans-serif;
   font-weight: normal;
   margin-bottom: 2em;
+}
+
+body.photos h5, body.photos h6 {
+  margin-bottom: 1.5rem;
 }
 
 body.registry .columns a.column {
