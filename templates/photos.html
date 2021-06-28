@@ -4,20 +4,24 @@
 {% block title %}Gallery{% endblock %}
 
 {% block pagecontent %}
-    <h3>Our 2020 Ceremony</h3>
-    <h5>September 18, 2020, Boulder, CO</h5>
-    <div class="photos grid">
-    {% for url in ceremony_images %}
-        <div class="grid-item"><img src="/static/img/ceremony/{{ url }}" alt="" /></div>
-    {%  endfor %}
+    <div class="has-text-centered is-clearfix">
+        <h3>Our 2020 Ceremony</h3>
+        <h6>September 18, 2020 &middot; Boulder, CO</h6>
+        <div class="photos grid">
+        {% for url in ceremony_images %}
+            <div class="grid-item"><img src="/static/img/ceremony/{{ url }}" alt="" /></div>
+        {%  endfor %}
+        </div>
     </div>
 
-    <h3>Engagement Announcement</h3>
-    <h5>October 28, 2019, Central Park, NYC</h5>
-    <div class="photos grid">
-    {% for url in images %}
-        <div class="grid-item"><img src="/static/img/gallery/{{ url }}" alt="" /></div>
-    {%  endfor %}
+    <div class="has-text-centered is-clearfix">
+        <h3>Engagement Announcement</h3>
+        <h6>October 28, 2019 &middot; Central Park, NYC</h6>
+        <div class="photos grid">
+        {% for url in images %}
+            <div class="grid-item"><img src="/static/img/gallery/{{ url }}" alt="" /></div>
+        {%  endfor %}
+        </div>
     </div>
 {% endblock %}
 

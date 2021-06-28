@@ -482,6 +482,15 @@ body.travel {
   }
 }
 
+// Photos page
+body.photos {
+  h5, h6 {
+    @extend .stamp;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// Registry page
 body.registry {
 
   .columns {
