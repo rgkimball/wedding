@@ -1,1 +1,3 @@
 static/**/*.css linguist-generated=true
+wedding/migrations/* linguist-generated=true
+templates/lib/* linguist-vendor
